@@ -78,7 +78,9 @@ class MyAdvertisedDeviceCallbacks: public BLEAdvertisedDeviceCallbacks {
         Serial.println(pServerAddress->toString().c_str());
         advertisedDevice.getScan()->stop();
       }
-    }
+      /******** This releases the memory when we're done. ********/
+      delete pServerAddress; 
+   }
 }; // MyAdvertisedDeviceCallbacks
 
 void sendMessage() {
